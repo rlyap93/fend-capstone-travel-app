@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Travel Planner</title>
+</head>
+ <body>
+<div id = "app">
+  <div class ="holder headline">
+    <h1>My Travel Planner</h1>
+  </div>
+  <div class="main">
+  <div class="details">
+  <div class ="holder zip">
+    <div class = "zipLabel">
+      <label for="zip" class ="zipEntry"><h2>Where to?</h2></label>
+    </div>
+      <input type="text" id="city" placeholder="ie Paris France">
+  </div>
+  <div class ="holder feel">
+    <label for="feelings"><h2>When?</h2></label>
+    <div class="navigation-option"><input type="date" id="date"> to <input type="date" id="endDate"></div>
+  </div>
+  </div>
+  <div class="holder submit-btn">
+    <div class="button"><button id="done"> Get Details </button></div>
+  </div>
+  </div>
+  <div class="holder entry" id="entry">
+    <div class="title"><h2 class="title">Please enter your trip details above</h2></div>
+    <div id="entryHolder">
+      <div class="content"><span class="entryLabel"></span> <span id="destination"></span></div> 
+      <div class="content"><span class="entryLabel"> </span><span id="temp"></span></div>
+      <div class="content"><span class="entryLabel"></span><span id="photo"></span></div>
+    </div>
+  </div>
+  </div>
+</body>
+</html>
