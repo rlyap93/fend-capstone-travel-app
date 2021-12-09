@@ -24,12 +24,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^4.5.2",
-    "jest": "^27.3.1",
+    "jest": "^27.4.3",
     "mini-css-extract-plugin": "^2.4.5",
     "node-sass": "^6.0.1",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
@@ -39,5 +39,10 @@
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-dev-server": "^4.4.0",
     "workbox-webpack-plugin": "^6.4.2"
-  }
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(scss|css)$": "<rootDir>/__mocks__/fileMock.js"
+    }
+}
 }

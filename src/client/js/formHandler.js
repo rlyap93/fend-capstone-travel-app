@@ -126,5 +126,5 @@ const countdown = (date) => {
     }
 
 
-export { handleSubmit }
+export { handleSubmit, countdown}
 

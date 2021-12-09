@@ -4,7 +4,6 @@ function checkForText(inputText) {
         return true;
     }
     else{
-        alert("Please enter a valid city")
         return false;
     }
 }
