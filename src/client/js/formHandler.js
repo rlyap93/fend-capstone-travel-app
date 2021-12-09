@@ -12,7 +12,7 @@ let endDate = "";
 document.getElementById('done').addEventListener('click', handleSubmit);
 
 function handleSubmit(event) {
-    event.preventDefault()
+    // event.preventDefault()
 
     // check what text was put into the form field
     let formCity = document.getElementById('city').value
