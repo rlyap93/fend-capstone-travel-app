@@ -8,9 +8,9 @@ function checkForText(inputText) {
     }
 }
 
-function checkForValidDate(inputDays,startDate,endDate) {
+function checkForValidDate(inputDays,tripDuration) {
     console.log("::: Running checkForValidDate :::", inputDays);
-    if(inputDays > 0 & (endDate > startDate)){
+    if(inputDays > 0 & (tripDuration > 1)){
         return true;
     }
     else{

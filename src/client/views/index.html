@@ -9,7 +9,7 @@
   <div class ="holder headline">
     <h1>My Travel Planner</h1>
   </div>
-  <div class="main">
+  <div class="main" id="main">
   <div class="details">
   <div class ="holder zip">
     <div class = "zipLabel">
@@ -27,12 +27,13 @@
   </div>
   </div>
   <div class="holder entry" id="entry">
-    <div class="title"><h2 class="title">Please enter your trip details above</h2></div>
+    <div class="title"><h3 id="title">Please enter your trip details above</h3></div>
     <div id="entryHolder">
       <div class="content"><span class="entryLabel"></span> <span id="destination"></span></div> 
       <div class="content"><span class="entryLabel"> </span><span id="temp"></span></div>
       <div class="content"><span class="entryLabel"></span><span id="photo"></span></div>
     </div>
+      <div class="button"><button id="reset" class="reset" onClick="window.location.reload()"> RESET </button></div>
   </div>
   </div>
   <script>

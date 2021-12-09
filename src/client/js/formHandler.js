@@ -7,6 +7,7 @@ let apiData = {};
 let daysTilTrip = "";
 let formDate = "";
 let endDate = "";
+let tripDuration ="";
 
 // Event listener to add function to existing HTML DOM element
 document.getElementById('done').addEventListener('click', handleSubmit);
@@ -19,7 +20,8 @@ function handleSubmit(event) {
     formDate = document.getElementById('date').value
     endDate = document.getElementById('endDate').value
     daysTilTrip = countdown(formDate)
-    if(Client.checkForText(formCity) & checkForValidDate(daysTilTrip,formDate,endDate)){
+    tripDuration = calcDuration(formDate,endDate)
+    if(Client.checkForText(formCity) & checkForValidDate(daysTilTrip,tripDuration)){
       getAPIData(formCity,GEONAMES_USERNAME,daysTilTrip)
       .then(data => {
         if(data){
@@ -27,6 +29,9 @@ function handleSubmit(event) {
           updateInterface()
         }
       })
+    }
+    else{
+      alert("Please enter a city")
     }
 }
 
@@ -42,7 +47,7 @@ const getAPIData = async (city, GEONAMES_USERAME,days)=>{
       await getPixabayImg(data.postalCodes[0].adminName2)
       }
       else{
-        apiData = "";
+        alert("Please enter a valid city")
         return false;
       }
     }  catch(error) {
@@ -99,10 +104,10 @@ async function updateInterface() {
   const request = await fetch('http://localhost:8081/all');
   try{
     const data = await request.json();
-    console.log(data)
+    console.log(data.destination)
     
-    document.getElementById('title').innerHTML = ""
-    document.getElementById('destination').innerHTML = `Your ${daysTilTrip} day trip to ${data.destination} starts in ${daysTilTrip} from ${formDate} to ${endDate}`
+    document.getElementById('title').innerHTML = "Trip details:"
+    document.getElementById('destination').innerHTML = `Your ${tripDuration} day trip to ${data.destination} starts in ${daysTilTrip} days from ${formDate} to ${endDate}`
 
     if(daysTilTrip > 7){
       document.getElementById('temp').innerHTML = `Forecasted temperature is ${data.temperature}&#8451;`
@@ -110,7 +115,13 @@ async function updateInterface() {
     else{
       document.getElementById('temp').innerHTML = `Current temperature now is ${data.temperature}&#8451;`
     }
-    document.querySelector('.entry').setAttribute('style', "background-image: url('"+data.url+"'); background-size: cover");
+    document.querySelector('.app').setAttribute('style', "background-image: url('"+ data.url +"'); background-size: cover");
+    document.getElementById("main").style.visibility = "hidden";  
+    document.getElementById("entry").style.transform = "translateY(-150px)"
+    document.querySelector('.entry').setAttribute('height', "300px");
+    document.getElementById("reset").style.visibility = "visible";  
+    
+
   } catch{
     console.log("error", error);
   }
@@ -124,6 +135,15 @@ const countdown = (date) => {
       let difference = Math.round(tripDate.getTime() - currentDate.getTime()) / (oneDay);
       return difference.toFixed(0)
     }
+
+//to calculate the duration of the trip
+const calcDuration = (startDate, endDate) => {
+      const oneDay = 1000 * 60 * 60 * 24
+      const tripStartDate = new Date(startDate);
+      const tripEndDate = new Date(endDate);
+      let difference = Math.round(tripEndDate.getTime() - tripStartDate.getTime()) / (oneDay);
+      return difference.toFixed(0)
+    }    
 
 
 export { handleSubmit, countdown}

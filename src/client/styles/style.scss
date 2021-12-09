@@ -30,7 +30,7 @@
     color: #fff;
     background-color: #772d2dc5;
     width: 100%;
-    margin: 20px auto;
+    margin: 25px auto;
     display: flex;
     flex-direction: column;
 }
@@ -49,6 +49,10 @@ body {
 .entryLabel{
     font-size: 1.1em;
     font-weight: 700;
+}
+
+.content{
+    font-size: 1.5em;
 }
 
 h1{
@@ -87,7 +91,11 @@ textarea{
     box-shadow: 3px 2px 2px #a4a6b3;
 }
 
-button[id="done"]{
+.reset{
+    visibility: hidden;
+}
+
+button{
     color: #fff;;
     background-color: #772d2dc5;
     text-shadow: 1px 1px 2px #7e7e8685;
@@ -96,13 +104,13 @@ button[id="done"]{
     border: 2px double #772d2dc5;
     outline: 1px solid #fff;
     border-radius: 10px;
-    margin: 50px 5px;
+    margin: 50px 5px 0 5px;
     padding: 5px 20px;
     cursor: pointer;
     align-self: center;
 }
 
-button[id="done"]:hover{
+button:hover{
     color: #772d2dc5;
     background-color: #fff;
     font-weight: 700;
